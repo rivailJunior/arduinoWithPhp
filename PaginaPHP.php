@@ -1,11 +1,9 @@
-<html>
-<head></head>
-<body>
- 
 <?php
+
 $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+
 // Se conecta ao IP e Porta:
-socket_connect($sock, "192.168.0.177", 80);
+socket_connect($sock, "10.0.0.177", 80);
 
 // Executa a ação correspondente ao botão apertado.
 if (isset($_POST['bits'])) {
@@ -76,7 +74,9 @@ if (($status[4] == 'L') && ($status[5] == '#')) {
     }
     
     ?>
-
+<html>
+<head></head>
+<body>
     <form method="post" action="PaginaPHP.php">
         <input type="hidden" name="bits" value="<?php echo $status;?>">
         <br>
@@ -90,6 +90,9 @@ if (($status[4] == 'L') && ($status[5] == '#')) {
         </button>
         </br>
     </form>
+</body>
+</html>
+
     <?php
 }
 // Caso ele não receba o status corretamente, avisa erro.
@@ -99,7 +102,3 @@ else {
 socket_close($sock);
 ?>
  
-</body>
-
-
-</html>
