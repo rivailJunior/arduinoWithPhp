@@ -8,10 +8,13 @@ socket_connect($sock, "10.0.0.177", 80);
 // Executa a ação correspondente ao botão apertado.
 if (isset($_POST['bits'])) {
     $msg = $_POST['bits'];
-    if (isset($_POST['Fora'])) {
-        if ($msg[0] == '1') {
+    if (isset($_POST['fora'])) {
+        if ($msg[0] == '1') {   
             $msg[0] = '0';
+            echo "aqui no 1";
+            //header("Refresh:0");
         } else {
+            echo "aqui no 0";
             $msg[0] = '1';
         }
     }
@@ -78,7 +81,7 @@ if (($status[4] == 'L') && ($status[5] == '#')) {
 <head></head>
 <body>
     <form method="post" action="PaginaPHP.php">
-        <input type="hidden" name="bits" value="<?php echo $status;?>">
+        <input type="text" name="bits" value="<?php echo $status;?>">
         <br>
         <button type ="submit" name="Fora" style="width:70; background-color: <?php echo $cor1; ?>; font: bold 14px Arial">RELE 1
         </button>
