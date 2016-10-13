@@ -5,16 +5,14 @@ $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 // Se conecta ao IP e Porta:
 socket_connect($sock, "10.0.0.177", 80);
 
+
 // Executa a ação correspondente ao botão apertado.
 if (isset($_POST['bits'])) {
     $msg = $_POST['bits'];
-    if (isset($_POST['fora'])) {
+/*    if (isset($_POST['fora'])) {
         if ($msg[0] == '1') {   
             $msg[0] = '0';
-            echo "aqui no 1";
-            //header("Refresh:0");
         } else {
-            echo "aqui no 0";
             $msg[0] = '1';
         }
     }
@@ -44,7 +42,8 @@ if (isset($_POST['bits'])) {
     }
     if (isset($_POST['Grande'])) {
         $msg = 'G#';
-    }
+    }*/
+    echo $msg;
     socket_write($sock, $msg, strlen($msg));
 }
 
